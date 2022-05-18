@@ -1,7 +1,8 @@
 <script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
+// const helloProps = defineProps<{
+//   msg: string,
+//   timer: string
+// }>()
 </script>
 
 <template>
@@ -11,6 +12,7 @@ defineProps<{
       You’ve successfully created a project with
       <a target="_blank" href="https://vitejs.dev/">Vite</a> +
       <a target="_blank" href="https://vuejs.org/">Vue 3</a>. What's next?
+      <br/><br/> It's {{timer}} Now.
     </h3>
   </div>
 </template>
