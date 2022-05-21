@@ -75,7 +75,7 @@ const TopbarComp = defineComponent({
 
 .page {
   display: block;
-  padding: 0rem 1.5rem 2rem 20rem;
+  padding: 4rem 1.5rem 2rem 20rem;
 }
 .page .item {
   margin-top: 2rem;
@@ -86,6 +86,10 @@ const TopbarComp = defineComponent({
   .page .item {
     margin-top: 0;
     padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
+  }
+  .page .page-title {
+    margin-top: 0;
+    padding: 0.4rem 0 0rem calc(var(--section-gap) / 2);
   }
 }
 </style>
