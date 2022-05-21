@@ -5,19 +5,7 @@ import { defineComponent } from 'vue'
 import * as DateTimeUtil from "@/utils/DateTime.js"
 import HelloWorld from '@/components/HelloWorld.vue'
 
-const myMixin = {
-  created() {
-    this.hello()
-  },
-  methods: {
-    hello() {
-      console.log('hello from mixin!')
-    }
-  }
-}
-
 const HelloWorldComp = defineComponent({
-  mixins: [myMixin],
   render: HelloWorld.render,
   data() {
     return {
@@ -31,18 +19,27 @@ const HelloWorldComp = defineComponent({
     }, 1000)
   }
 })
+
+const TopbarComp = defineComponent({
+  render: TopbarView.render,
+  data() {
+    return {
+      GITHUB_URL: 'https://github.com/' + process.env.GITHUB_AUTHOR
+    }
+  }
+})
 </script>
 
 <template>
   <div class="theme-container">
-    <TopbarView />
+    <TopbarComp />
 
     <aside class="sidebar">
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
       <div class="wrapper">
         <HelloWorldComp />
-        <!-- <HelloWorld msg="You did it!" /> -->
+
         <nav>
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>

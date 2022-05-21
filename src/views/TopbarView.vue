@@ -2,18 +2,20 @@
   <header class="navbar">
     <a href="/" class="home-link router-link-active">
       <img src="@/assets/logo.svg" alt="Vue.js" class="logo">
-      <span class="site-name can-hide">Vue 3 Demo</span>
+      <span class="site-name can-hide">Vue 3 Github</span>
     </a>
 
     <div class="links" style="max-width: 1314px;">
       <nav class="nav-links can-hide">
-        <a href="https://github.com/agilejzl" target="_blank" rel="noopener noreferrer" class="repo-link">GitHub</a>
+        <a :href="GITHUB_URL" target="_blank" rel="noopener noreferrer" class="repo-link">
+          {{GITHUB_URL.split('//')[1]}}
+        </a>
       </nav>
     </div>
   </header>
 </template>
 
-<style scoped>
+<style>
 .navbar {
   padding: .7rem 1.5rem;
   line-height: 2.2rem;

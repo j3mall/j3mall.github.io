@@ -2,8 +2,9 @@
   "name": "vue-project",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "cross-env vite --mode development",
+    "test": "vue-tsc --noEmit && cross-env NODE_ENV=test vite build --mode test",
+    "build": "vue-tsc --noEmit && cross-env NODE_ENV=production vite build --mode production",
     "preview": "vite preview --port 5050",
     "test:unit": "vitest --environment jsdom",
     "test:e2e": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress open'",
@@ -12,6 +13,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.1",
     "pinia": "^2.0.13",
     "vue": "^3.2.33",
     "vue-router": "^4.0.14"
