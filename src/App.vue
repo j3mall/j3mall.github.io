@@ -1,24 +1,9 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { defineComponent } from 'vue'
-import * as DateTimeUtil from "@/utils/DateTime.js"
-import HelloWorld from '@/components/HelloWorld.vue'
 import TopbarComp from '@/components/layout/TopbarComp.vue'
+import UserCardComp from '@/components/github/UserCardComp.vue'
+import TimerComp from '@/components/layout/TimerComp.vue'
 
-const HelloWorldComp = defineComponent({
-  render: HelloWorld.render,
-  data() {
-    return {
-      msg: 'defineComponent!',
-      timer: ''
-    }
-  },
-  beforeMount: function(e) {
-    setInterval(() => {
-      this.timer = DateTimeUtil.formatDate()
-    }, 1000)
-  }
-})
 </script>
 
 <template>
@@ -26,16 +11,12 @@ const HelloWorldComp = defineComponent({
     <TopbarComp />
 
     <aside class="sidebar">
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-      <div class="wrapper">
-        <HelloWorldComp />
-
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
-        </nav>
-      </div>
+      <UserCardComp />
+      <br/><TimerComp />
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
     </aside>
 
     <main class="page">
