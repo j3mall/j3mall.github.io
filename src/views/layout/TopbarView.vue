@@ -5,11 +5,13 @@
       <span class="site-name can-hide">Vue 3 Github</span>
     </a>
 
-    <div class="links" style="max-width: 1314px;">
-      <nav class="nav-links can-hide">
-        <a :href="GITHUB_URL" target="_blank" rel="noopener noreferrer" class="repo-link">
-          {{GITHUB_URL.split('//')[1]}}
-        </a>
+    <div class="links">
+      <nav class="nav-links">
+        <span class="repo-link">
+          https://github.com/
+        </span>
+        <input name="author" class="github-author" type="text" :placeholder="author" :value="author" @blur="updateAuthor"/>
+        <svg width="20" height="20" class="search-icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </nav>
     </div>
   </header>
@@ -48,5 +50,13 @@
   right: 1.5rem;
   top: .7rem;
   display: flex;
+}
+
+.navbar .search-icon {
+  left: 4px;
+  top: 6px;
+}
+input.github-author {
+  width: 80px;
 }
 </style>

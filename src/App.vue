@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TopbarView from '@/views/TopbarView.vue'
 import { RouterLink, RouterView } from 'vue-router'
 import { defineComponent } from 'vue'
 import * as DateTimeUtil from "@/utils/DateTime.js"
 import HelloWorld from '@/components/HelloWorld.vue'
+import TopbarComp from '@/components/layout/TopbarComp.vue'
 
 const HelloWorldComp = defineComponent({
   render: HelloWorld.render,
@@ -17,15 +17,6 @@ const HelloWorldComp = defineComponent({
     setInterval(() => {
       this.timer = DateTimeUtil.formatDate()
     }, 1000)
-  }
-})
-
-const TopbarComp = defineComponent({
-  render: TopbarView.render,
-  data() {
-    return {
-      GITHUB_URL: 'https://github.com/' + process.env.GITHUB_AUTHOR
-    }
   }
 })
 </script>

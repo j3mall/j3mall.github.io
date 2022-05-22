@@ -1,7 +1,7 @@
 
 <template>
   <div class="page-title">
-    <h1>GitHub Public Repos</h1> {{items.length}} results for {{type}} repositories sorted by last {{sort}}
+    <h1>GitHub Public Repos</h1> {{items.length}} results for {{author}}'s {{type}} repositories sorted by last {{sort}}
   </div>
 
   <div class="item" v-for="(item, index) in items">
