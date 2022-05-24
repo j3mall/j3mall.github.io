@@ -1,17 +1,9 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import TopbarComp from '@/components/layout/TopbarComp.vue'
-import UserCardComp from '@/components/github/UserCardComp.vue'
-import TimerComp from '@/components/layout/TimerComp.vue'
-
-</script>
-
 <template>
   <div class="theme-container">
-    <TopbarComp />
+    <TopbarComp :search="search" @searchAuthor="doSearchAuthor" />
 
     <aside class="sidebar">
-      <UserCardComp />
+      <UserCardComp :author="author" :search="search"/>
       <br/><TimerComp />
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -20,10 +12,33 @@ import TimerComp from '@/components/layout/TimerComp.vue'
     </aside>
 
     <main class="page">
-      <RouterView />
+      <RouterView :author="author" />
     </main>
   </div>
 </template>
+
+<script lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import TopbarComp from '@/components/layout/TopbarComp.vue'
+import UserCardComp from '@/components/github/UserCardComp.vue'
+import TimerComp from '@/components/layout/TimerComp.vue'
+
+export default {
+  name: 'AppComp',
+  data() {
+    return { author: process.env.GITHUB_AUTHOR, search: process.env.GITHUB_AUTHOR }
+  },
+  components: {
+    TimerComp, TopbarComp, UserCardComp, RouterView
+  },
+  methods: {
+    doSearchAuthor(event) {
+      this.search = event.target.value
+      console.log("App 0th: SearchAuthor", this.search)
+    }
+  }
+}
+</script>
 
 <style>
 @import '@/assets/base.css';
