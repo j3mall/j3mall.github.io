@@ -43,6 +43,7 @@ nav a:first-of-type {
   body {
     display: flex;
     place-items: center;
+    font-size: 16px;
   }
 
   header {

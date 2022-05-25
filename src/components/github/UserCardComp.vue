@@ -5,7 +5,7 @@
 
     <div class="user-infos">
       <h1 class="username">{{user.name}}</h1>
-      Bio: {{user.bio}}
+      <span class="inline-title">Bio: </span>{{user.bio}}
       <br/> {{user.followers}} followers · {{user.following}} following
       <a target="_blank" :href="user.blog">{{user.blog}}</a>
     </div>
@@ -61,6 +61,9 @@ h1 {
   font-weight: 500;
   font-size: 2.6rem;
   top: -10px;
+}
+.inline-title {
+  font-style: oblique;
 }
 
 .user-panel h1,
